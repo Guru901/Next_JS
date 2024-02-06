@@ -46,18 +46,20 @@ const Home = () => {
       setLoading(true);
 
       if (pswdCheck()) {
-        const response = await axios.post("/api/user/register", form);
+        const { data } = await axios.post("/api/user/register", form);
 
         // if everything's good send the user to /feed
 
-        if (response.data.success) {
-          router.push("/feed");
-        } else {
-          setError(response.data.msg);
-        }
+        console.log(data);
+
+        // if (data.success) {
+        //   router.push("/feed");
+        // } else {
+        //   setError(data.msg);
+        // }
       }
 
-      setLoading(false);
+      // setLoading(false);
     } catch (error) {
       console.log(error.response.data);
       setLoading(false);

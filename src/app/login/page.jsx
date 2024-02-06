@@ -1,14 +1,16 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { UserContext } from "../Context/UserContext";
 
 const Login = () => {
   const [form, setForm] = useState({}); // user's data
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const { setUser } = useContext(UserContext);
 
   const avatarRef = useRef(); // avatar input
   const router = useRouter();
@@ -33,6 +35,7 @@ const Login = () => {
 
       if (response.data.success) {
         router.push("/feed");
+        setUser(response.data.user);
       } else {
         setError(response.data.msg);
       }

@@ -18,7 +18,7 @@ export async function POST(request) {
 
     // checking the password
     if (user.password === password) {
-      return Response.json({ success: true, msg: "Login" });
+      return Response.json({ success: true, user: user });
     }
 
     return Response.json({ success: false, msg: "Incorrect Credentials" });
