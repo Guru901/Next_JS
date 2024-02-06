@@ -121,7 +121,7 @@ const Home = () => {
               Select Avatar
             </h1>
             <div className="flex flex-col text-xs gap-1">
-              <h1>Remember you can't ever change the password</h1>
+              <h1>Remember you cant ever change the password</h1>
               <Link href={"/"} className="underline">
                 Learn more
               </Link>
